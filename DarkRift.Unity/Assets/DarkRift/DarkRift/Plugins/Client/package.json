@@ -1,0 +1,19 @@
+{
+	"name": "darkrift.unity.client",
+	"version": "1.0.0",
+	"displayName": "DarkRift Uniy Client",
+	"dependencies": {
+		"darkrift.core": {
+			"version": "file:../../../../../../DarkRift",
+			"depth": 0,
+			"source": "local",
+			"dependencies": {}
+			},
+			"darkrift.client": {
+				"version": "file:../../../../../../DarkRift.Client",
+				"depth": 0,
+				"source": "local",
+				"dependencies": {}
+				}
+				}
+}

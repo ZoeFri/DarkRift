@@ -1,0 +1,25 @@
+{
+	"name": "darkrift.unity.server",
+	"version": "1.0.0",
+	"displayName": "DarkRift Uniy Server",
+	"dependencies": {
+		"darkrift.core": {
+			"version": "file:../../../../../../DarkRift",
+			"depth": 0,
+			"source": "local",
+			"dependencies": {}
+			},
+			"darkrift.server": {
+				"version": "file:../../../../../../DarkRift.Server",
+				"depth": 0,
+				"source": "local",
+				"dependencies": {}
+				},
+			"darkrift.client": {
+				"version": "file:../../../../../../DarkRift.Client",
+				"depth": 0,
+				"source": "local",
+				"dependencies": {}
+				}
+				}
+}

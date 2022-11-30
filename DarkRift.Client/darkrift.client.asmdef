@@ -1,0 +1,16 @@
+{
+    "name": "darkrift.client",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7705fc100b1b83b4392bc619ef966747"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

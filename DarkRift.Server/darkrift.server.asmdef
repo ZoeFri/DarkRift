@@ -1,0 +1,17 @@
+{
+    "name": "darkrift.server",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7705fc100b1b83b4392bc619ef966747",
+        "GUID:0f9d11ddfb6feea47b288358e7fb40b6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

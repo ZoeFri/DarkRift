@@ -1,0 +1,13 @@
+{
+	"name": "darkrift.server",
+	"version": "1.0.0",
+	"displayName": "DarkRift Server",
+	"dependencies": {
+		"darkrift.core": {
+			"version": "file:../DarkRift",
+			"depth": 0,
+			"source": "local",
+			"dependencies": {}
+			}
+			}
+}

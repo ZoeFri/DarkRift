@@ -1,0 +1,19 @@
+{
+    "name": "darkrift.unity.client.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0e26b1a958ae6414797eb5669f39f67f",
+        "GUID:0f9d11ddfb6feea47b288358e7fb40b6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
