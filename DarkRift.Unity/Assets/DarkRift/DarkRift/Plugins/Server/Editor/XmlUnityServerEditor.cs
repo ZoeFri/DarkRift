@@ -36,12 +36,14 @@ namespace DarkRift.Server.Unity
     public class XmlUnityClientEditor : Editor
     {
         private SerializedProperty configuration;
+        private SerializedProperty clusterConfiguration;
         private SerializedProperty createOnEnable;
         private SerializedProperty eventsFromDispatcher;
 
         private void OnEnable()
         {
             configuration = serializedObject.FindProperty("configuration");
+            clusterConfiguration = serializedObject.FindProperty("clusterConfiguration");
             createOnEnable = serializedObject.FindProperty("createOnEnable");
             eventsFromDispatcher = serializedObject.FindProperty("eventsFromDispatcher");
         }
@@ -55,6 +57,7 @@ namespace DarkRift.Server.Unity
             if (configuration.objectReferenceValue == null)
                 EditorGUILayout.HelpBox("There is currently no configuration file assigned for the XmlUnityServer. The server will not be able to start!\n\nConsider adding the ExampleConfiguration.xml file here to get started.", MessageType.Warning);
 
+            EditorGUILayout.PropertyField(clusterConfiguration);
             EditorGUILayout.PropertyField(createOnEnable);
 
             //Alert to changes when this is unticked!
@@ -94,6 +97,16 @@ namespace DarkRift.Server.Unity
                     AssetDatabase.OpenAsset(configuration.objectReferenceValue);
                 else
                     Debug.LogError("No configuration file specified!");
+            }
+
+            EditorGUILayout.Separator();
+
+            if (GUILayout.Button("Open Cluster Configuration"))
+            {
+                if (clusterConfiguration != null)
+                    AssetDatabase.OpenAsset(clusterConfiguration.objectReferenceValue);
+                else
+                    Debug.LogError("No clusterConfiguration file specified!");
             }
             serializedObject.ApplyModifiedProperties();
         }
