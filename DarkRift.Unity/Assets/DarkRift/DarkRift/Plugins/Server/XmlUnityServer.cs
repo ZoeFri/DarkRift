@@ -21,7 +21,6 @@ SOFTWARE.
 */
 
 using UnityEngine;
-using System.Collections;
 using System;
 using System.Xml.Linq;
 using System.Collections.Specialized;
@@ -41,6 +40,10 @@ namespace DarkRift.Server.Unity
         [SerializeField]
         [Tooltip("The configuration file to use.")]
         private TextAsset configuration;
+
+        [SerializeField]
+        [Tooltip("The cluster configuration file to use.")]
+        public TextAsset clusterConfiguration;
 
         [SerializeField]
         [Tooltip("Indicates whether the server will be created in the OnEnable method.")]
@@ -80,7 +83,7 @@ namespace DarkRift.Server.Unity
         {
             if (Server != null)
                 throw new InvalidOperationException("The server has already been created! (Is CreateOnEnable enabled?)");
-            
+
             if (configuration != null)
             {
                 // Create spawn data from config
@@ -102,8 +105,11 @@ namespace DarkRift.Server.Unity
                 spawnData.PluginSearch.PluginTypes.AddRange(UnityServerHelper.SearchForPlugins());
                 spawnData.PluginSearch.PluginTypes.Add(typeof(UnityConsoleWriter));
 
+                //create cluster spawn data
+                var clusterSpawnData = ClusterSpawnData.CreateFromXml(XDocument.Parse(clusterConfiguration.text), variables);
+
                 // Create server
-                Server = new DarkRiftServer(spawnData);
+                Server = new DarkRiftServer(spawnData, clusterSpawnData);
                 Server.StartServer();
             }
             else
