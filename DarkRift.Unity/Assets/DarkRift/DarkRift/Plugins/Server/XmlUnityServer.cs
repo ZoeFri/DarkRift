@@ -54,6 +54,8 @@ namespace DarkRift.Server.Unity
         private bool eventsFromDispatcher = true;
 #pragma warning restore IDE0044 // Add readonly modifier, Unity can't serialize readonly fields
 
+        private bool _disposeServer;
+
         private void OnEnable()
         {
             //If createOnEnable is selected create a server
@@ -66,6 +68,13 @@ namespace DarkRift.Server.Unity
             //Execute all queued dispatcher tasks
             if (Server != null)
                 Server.ExecuteDispatcherTasks();
+
+            if (_disposeServer)
+            {
+                Server.Dispose();
+                Server = null;
+                _disposeServer = false;
+            }
         }
 
         /// <summary>
@@ -132,7 +141,9 @@ namespace DarkRift.Server.Unity
         public void Close()
         {
             if (Server != null)
-                Server.Dispose();
+            {
+                _disposeServer = true;
+            }
         }
     }
 }
